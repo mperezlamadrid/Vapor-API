@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for marketprices-api on 2023-11-22T09:16:22-05:00
+# fly.toml app configuration file generated for marketprices-api on 2023-11-28T08:28:41-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = "marketprices-api"
-primary_region = "bos"
+primary_region = "bog"
 
 [build]
 
@@ -16,5 +16,10 @@ primary_region = "bos"
   min_machines_running = 0
   processes = ["app"]
 
-[deploy]
-  release_command = "migrate -y"
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
+[deploy]  
+	release_command = "migrate -y"
